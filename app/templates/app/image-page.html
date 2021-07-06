@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <a href="{% url 'images' %}">Назад к списку</a>
+    <h1>{{ image.title }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
+    </form>
+    <img src="{{ image_obj.image.url }}" alt="image">
+{% endblock %}

@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+    <a href="{% url 'images' %}">Назад к списку</a>
+    <h1>Новое изображение</h1>
+    <form method="post" enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Отправить</button>
+    </form>
+{% endblock %}
